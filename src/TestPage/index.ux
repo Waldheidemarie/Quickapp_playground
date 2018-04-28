@@ -1,0 +1,42 @@
+<template>
+    <div class="tutorial-page">
+        <div class="tutorial-row" for="{{list}}">
+            <text>{{$idx}}.{{$item.name}}</text>>
+        </div>
+
+        <div class="tutorial-row" for="value in list">
+            <text>{{$idx}}.{{value.name}}</text>
+        </div>
+
+        <div class="tutorial-row" for="(personIndex, personItem) in list">
+            <text>{{personIndex}}.{{personItem.name}}</text>
+        </div>
+    </div>
+</template>
+
+<style>
+    .tutorial-page {
+          flex-direction: column;
+    }
+    
+    .tutorial-row {
+        width: 85%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+        
+</style>
+
+<script>
+        export default {
+          private: {
+            list: [
+              { name: 'aa'},
+              { name: 'bb' }
+            ]
+          },
+          onInit () {
+            this.$page.setTitleBar({ text: '指令for' })
+          }
+        }
+</script>
